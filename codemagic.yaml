@@ -7,12 +7,13 @@ workflows:
     scripts:
       # Étape 1 : Nettoyer le projet
       - xcodebuild clean -project "HelloWorldProject.xcodeproj" -scheme "HelloWorldProject"
-      
-      # Étape 2 : Construire l'application pour un simulateur iOS (pas besoin de signature)
-      - xcodebuild build -project "HelloWorldProject.xcodeproj" -scheme "HelloWorldProject" -sdk iphonesimulator
-      
+
+      # Étape 2 : Construire l'application pour un simulateur iOS (pas besoin de signature)scripts:
+      - xcodebuild build -project "HelloWorldProject.xcodeproj" -scheme "HelloWorldProject" -sdk iphonesimulator -configuration Debug -derivedDataPath build/
+
       # Étape 3 : Vérifier si le fichier exécutable est généré
       - echo "Build completed. Verifying the output..."
+      - ls -R build/
     artifacts:
       # Récupérer les fichiers de build (utiles pour les tests locaux)
       - build/Debug-iphonesimulator/*.app

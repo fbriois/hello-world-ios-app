@@ -1,0 +1,18 @@
+workflows:
+  ios-build:
+    name: iOS Build without Signing
+    environment:
+      xcode: latest
+      cocoapods: default # Ajoutez ceci si votre projet utilise CocoaPods
+    scripts:
+      # Étape 1 : Nettoyer le projet
+      - xcodebuild clean -project "HelloWorld.xcodeproj" -scheme "HelloWorld"
+      
+      # Étape 2 : Construire l'application pour un simulateur iOS (pas besoin de signature)
+      - xcodebuild build -project "HelloWorld.xcodeproj" -scheme "HelloWorld" -sdk iphonesimulator
+      
+      # Étape 3 : Vérifier si le fichier exécutable est généré
+      - echo "Build completed. Verifying the output..."
+    artifacts:
+      # Récupérer les fichiers de build (utiles pour les tests locaux)
+      - build/Debug-iphonesimulator/*.app

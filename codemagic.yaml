@@ -16,4 +16,4 @@ workflows:
       - ls -R build/
     artifacts:
       # Récupérer les fichiers de build (utiles pour les tests locaux)
-      - build/Debug-iphonesimulator/*.app
+      - build/Build/Products/Debug-iphonesimulator/*.app

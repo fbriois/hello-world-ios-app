@@ -6,10 +6,10 @@ workflows:
       cocoapods: default # Ajoutez ceci si votre projet utilise CocoaPods
     scripts:
       # Étape 1 : Nettoyer le projet
-      - xcodebuild clean -project "HelloWorldProject.xcodeproj" -scheme "HelloWorld"
+      - xcodebuild clean -project "HelloWorldProject.xcodeproj" -scheme "HelloWorldProject"
       
       # Étape 2 : Construire l'application pour un simulateur iOS (pas besoin de signature)
-      - xcodebuild build -project "HelloWorldProject.xcodeproj" -scheme "HelloWorld" -sdk iphonesimulator
+      - xcodebuild build -project "HelloWorldProject.xcodeproj" -scheme "HelloWorldProject" -sdk iphonesimulator
       
       # Étape 3 : Vérifier si le fichier exécutable est généré
       - echo "Build completed. Verifying the output..."
